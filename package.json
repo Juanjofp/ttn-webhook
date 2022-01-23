@@ -1,5 +1,5 @@
 {
-    "name": "projectname",
+    "name": "ttn-sample",
     "version": "0.0.1",
     "description": "",
     "main": "build/main.js",

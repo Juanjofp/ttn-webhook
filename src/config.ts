@@ -16,7 +16,7 @@ export type Config = {
 export function buildConfig(): Config {
     const config = convict<Config>({
         projectname: {
-            doc: 'The name of the project',
+            doc: 'TTN Sample',
             format: String,
             default: 'Default Project',
             env: 'PROJECT_NAME'
@@ -51,7 +51,7 @@ export function buildConfig(): Config {
             port: {
                 doc: 'The port to bind the http server.',
                 format: 'port',
-                default: 8889,
+                default: 3099,
                 env: 'HTTP_PORT'
             }
         }
