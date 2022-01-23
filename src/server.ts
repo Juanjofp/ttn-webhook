@@ -11,7 +11,7 @@ export function buildServer(logger: Logger): FastifyInstance {
     });
 
     server.post('/message', (req, reply) => {
-        logger.info(`/message`, req.body);
+        logger.info(`/message ${JSON.stringify(req.body)}`);
         reply
             .status(200)
             .headers({ 'content-type': 'application/json' })
@@ -19,7 +19,7 @@ export function buildServer(logger: Logger): FastifyInstance {
     });
 
     server.post('/join', (req, reply) => {
-        logger.info(`/join`, req.body);
+        logger.info(`/join ${JSON.stringify(req.body)}`);
         reply
             .status(200)
             .headers({ 'content-type': 'application/json' })
