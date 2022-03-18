@@ -10,6 +10,6 @@ WORKDIR /app
 COPY package*.json .
 RUN npm ci
 COPY --from=builder /app/dist /app/dist
-ENV PORT 3099
-EXPOSE ${PORT}
+ENV HTTP_PORT 3099
+EXPOSE ${HTTP_PORT}
 CMD ["npm", "start"]
