@@ -1,13 +1,15 @@
-FROM node:14.16.0-alpine
+FROM node:16-alpine as builder
 
-ENV NODE_ENV=production
-
-WORKDIR /var/www
-
-COPY ./package*.json ./
-
+WORKDIR /app
+COPY . .
 RUN npm ci
+RUN npm run build
 
-COPY ./build ./build
-
-CMD ["node", "build/main.js"]
+FROM node:16-alpine
+WORKDIR /app
+COPY package*.json .
+RUN npm ci
+COPY --from=builder /app/dist /app/dist
+ENV PORT 3099
+EXPOSE ${PORT}
+CMD ["npm", "start"]

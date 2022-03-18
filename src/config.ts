@@ -45,7 +45,7 @@ export function buildConfig(): Config {
             host: {
                 doc: 'The host ip address to bind the http server.',
                 format: String,
-                default: 'localhost',
+                default: '0.0.0.0',
                 env: 'HTTP_HOST'
             },
             port: {
