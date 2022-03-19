@@ -80,7 +80,7 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           password: ${{ secrets.VPS_SSH_KEY }}
           port: ${{ secrets.VPS_SSH_PORT }}
-          source: "docker-compose.yml,logo.png"
+          source: "docker-compose.yml,compose.txt,logo.png"
           target: "ttn-hooks"
 
       - name: Deploy with docker-compose
