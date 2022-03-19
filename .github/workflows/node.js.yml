@@ -7,10 +7,9 @@ on:
         branches: [main]
 
 jobs:
-    build:
+    test:
         env:
             CI: true
-            IMAGE_NAME: juanjofranco/ttn-hooks
 
         runs-on: ubuntu-latest
 
@@ -25,13 +24,25 @@ jobs:
               with:
                   node-version: ${{ matrix.node-version }}
             - run: npm ci
-            - run: npm run build --if-present
             - run: npm run lint
             - run: npm run test-ci
 
-            - name: Publish Code Coverage
-              if: github.ref == 'refs/heads/main'
-              uses: codecov/codecov-action@v1
+    build:
+        needs: test
+        env:
+            CI: true
+            IMAGE_NAME: juanjofranco/ttn-hooks
+
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+            - name: Use Node.js 16
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 16.x
+            - run: npm ci
+            - run: npm run build --if-present
 
             - name: Docker Build and Publish
               if: github.ref == 'refs/heads/main'
