@@ -73,7 +73,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Deploy with docker-compose
+      - name: Deploy with docker-compose ${{ env.VPS_USER }}
         uses: appleboy/ssh-action@master
         with:
           host: 23.88.98.94
