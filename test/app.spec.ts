@@ -106,10 +106,9 @@ describe('App', () => {
 
     test('should return 200 with basic homepage when route is /message', async () => {
         const expectedResponse = { version: '0.0.1' };
-        const requestBody = { message: 'Hello World' };
         const response = await app
             .getServer()
-            .inject({ method: 'POST', url: '/message', payload: requestBody });
+            .inject({ method: 'POST', url: '/message', payload: messageBody });
 
         expect(response.statusCode).toBe(200);
         const body = JSON.parse(response.body);

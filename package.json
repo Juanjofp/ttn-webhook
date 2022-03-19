@@ -21,7 +21,10 @@
         "pretty-quick": "pretty-quick --staged"
     },
     "author": "juanjofp, francescorivola",
-    "repository": "",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:Juanjofp/ttn-webhook.git"
+    },
     "license": "MIT",
     "devDependencies": {
         "@types/convict": "^6.1.1",

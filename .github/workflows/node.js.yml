@@ -10,13 +10,13 @@ jobs:
     build:
         env:
             CI: true
-            IMAGE_NAME: juanjofranco/nodejs-seed
+            IMAGE_NAME: juanjofranco/ttn-hooks
 
         runs-on: ubuntu-latest
 
         strategy:
             matrix:
-                node-version: [10.x, 12.x, 14.x, 15.x]
+                node-version: [14.x, 15.x, 16.x, 17.x]
 
         steps:
             - uses: actions/checkout@v2
@@ -38,7 +38,7 @@ jobs:
               uses: docker/build-push-action@v1
               with:
                   username: ${{ secrets.DOCKER_USERNAME }}
-                  password: ${{ secrets.DOCKER_PASSWORD }}
+                  password: ${{ secrets.DOCKER_TOKEN }}
                   repository: ${{ env.IMAGE_NAME }}
                   tag_with_ref: true
                   tag_with_sha: true
