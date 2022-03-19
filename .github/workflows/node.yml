@@ -80,4 +80,4 @@ jobs:
           username: teamcamp
           key: ${{ secrets.VPS_SSH_KEY }}
           port: 22
-          script: cd ttn-hooks && docker-compose pull && docker-compose up -d
+          script: touch hello
