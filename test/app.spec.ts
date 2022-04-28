@@ -94,7 +94,7 @@ describe('App', () => {
     });
 
     test('should return 200 with basic homepage when route is /version', async () => {
-        const expectedResponse = { version: '0.0.1' };
+        const expectedResponse = { version: '0.0.2' };
         const response = await app
             .getServer()
             .inject({ method: 'GET', url: '/version' });
