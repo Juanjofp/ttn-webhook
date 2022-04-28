@@ -7,4 +7,4 @@ services:
             - HTTP_HOST=0.0.0.0
             - HTTP_PORT=8888
         ports:
-            - '8888:8888'
+            - '3010:8888'
