@@ -7,7 +7,7 @@ export function buildServer(logger: Logger): FastifyInstance {
         reply
             .status(200)
             .headers({ 'content-type': 'application/json' })
-            .send({ version: '0.0.2' });
+            .send({ version: '0.0.1' });
     });
 
     server.post('/message', (req, reply) => {
